@@ -4,7 +4,8 @@ export default function Home() {
 
   return (
     <main className="">
-      <TestComponent/>
+      home page
+      {/* <TestComponent/> */}
     </main>
   );
 }

@@ -184,7 +184,7 @@ const TestComponent = () => {
         </CModal>
       </CCard>
 
-      <CCard title="custom overlay loader">{/* <COverlayLoader /> */}</CCard>
+      {/* <CCard title="custom overlay loader"><COverlayLoader /></CCard> */}
 
       <CCard title="custom pagination">
         {/* now here all the values are imaginory so you can only view it, it will not work */}
