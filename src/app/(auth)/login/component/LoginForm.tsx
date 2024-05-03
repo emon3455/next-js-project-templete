@@ -5,13 +5,11 @@ import React, { useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { errorAlert } from "@/utils/alert-function";
 import cToastify from "@/shared/Toastify/Toadtify";
-import { useAppDispatch } from "@/Redux/hooks";
 import Loading from "@/app/loading";
 
 const LoginForm = () => {
   const search = useSearchParams();
   const from = search.get("redirectUrl") || "/";
-  const dispatch = useAppDispatch();
 
   //login mutation
   const [
@@ -38,7 +36,7 @@ const LoginForm = () => {
         window.location.href = from;
       }
     }
-  }, [LoginData, from, isSuccess, dispatch]);
+  }, [LoginData, from, isSuccess]);
 
   //showing error message
   useEffect(() => {
@@ -61,7 +59,7 @@ const LoginForm = () => {
   //handling form submit
   const handleLogin = async () => {
     const user = {
-      userName: "elina",
+      userName: "emon3455",
       password: "123@Ea",
     };
 
