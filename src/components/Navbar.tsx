@@ -1,15 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Cookies from "js-cookie";
 import cToastify from "@/shared/Toastify/Toadtify";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import getUser from "@/hooks/useAuth";
 import { removeDataInCookies } from "@/Global/(cockies)/setCoockies";
 
 const Navbar = () => {
   const [user, setUser] = useState<any>(null);
-  const { replace } = useRouter();
   const path = usePathname();
 
   useEffect(() => {
@@ -29,7 +27,7 @@ const Navbar = () => {
     try {
       removeDataInCookies();
       if (path.includes("/admin") || path.includes("/customer")) {
-        replace(`/login?redirectUrl=${path}`);
+        window.location.href=`/login?redirectUrl=${path}`;
       }
       cToastify({
         type: "success",

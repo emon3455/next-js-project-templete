@@ -11,7 +11,6 @@ import Loading from "@/app/loading";
 const LoginForm = () => {
   const search = useSearchParams();
   const from = search.get("redirectUrl") || "/";
-  const router = useRouter();
   const dispatch = useAppDispatch();
 
   //login mutation
@@ -32,14 +31,14 @@ const LoginForm = () => {
       document.cookie = `authToken=${value}; max-age=86400;`;
 
       if (LoginData?.user?.role === "ADMIN") {
-        router.push("/admin");
+        window.location.href = "/admin";
       } else if (LoginData?.user?.role === "CUSTOMER") {
-        router.push("/customer");
+        window.location.href = "/customer";
       } else {
-        router.push(from as any);
+        window.location.href = from;
       }
     }
-  }, [LoginData, from, isSuccess, router, dispatch]);
+  }, [LoginData, from, isSuccess, dispatch]);
 
   //showing error message
   useEffect(() => {
@@ -68,9 +67,7 @@ const LoginForm = () => {
 
     try {
       await login(user)?.unwrap();
-      // console.log(user);
     } catch (err: any) {
-      // console.log(err);
       errorAlert({
         text: err?.data?.error || "Something Went wrong",
       });
