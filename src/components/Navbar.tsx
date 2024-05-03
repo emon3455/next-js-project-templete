@@ -28,6 +28,8 @@ const Navbar = () => {
       removeDataInCookies();
       if (path.includes("/admin") || path.includes("/customer")) {
         window.location.href=`/login?redirectUrl=${path}`;
+      }else{
+        window.location.href=`${path}`;
       }
       cToastify({
         type: "success",
@@ -48,6 +50,7 @@ const Navbar = () => {
         <Link href="/">Home</Link>
         <Link href="/admin">Admin</Link>
         <Link href="/customer">Customer</Link>
+        <Link href="/test">Test</Link>
         {
           user?.role 
           ? 
